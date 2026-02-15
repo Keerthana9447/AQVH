@@ -1,0 +1,169 @@
+/* ================= COMPLETE UNIFIED DARK THEME & HUD ================= */
+
+/* 1. GLOBAL OVERRIDES - TOTAL DARKNESS */
+header, #MainMenu, footer {
+    visibility: hidden;
+}
+
+.stApp {
+    background: radial-gradient(circle at center, #0a0e1a 0%, #050810 100%);
+    color: #f8fafc;
+}
+
+[data-testid="stAppViewContainer"] {
+    background-color: transparent;
+}
+
+/* 2. SIDEBAR - DEEP OBSIDIAN */
+[data-testid="stSidebar"] {
+    background-color: #050810 !important;
+    border-right: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+[data-testid="stSidebar"] .stMarkdown p,
+[data-testid="stSidebar"] label {
+    color: #94a3b8;
+}
+
+/* 3. INPUT FIELDS & TEXT AREAS */
+.stTextInput input, .stSelectbox div[data-baseweb="select"] {
+    background-color: #0a0e1a !important;
+    color: white !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px;
+}
+
+.stTextInput input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* 4. BUTTONS - QUANTUM NEON STYLE */
+.stButton > button {
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0a0e1a 0%, #050810 100%) !important;
+    color: #60a5fa !important;
+    border: 1px solid rgba(59, 130, 246, 0.4) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.stButton > button:hover {
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 5. METRICS & CARDS */
+[data-testid="stMetric"] {
+    background: rgba(10, 14, 26, 0.8) !important;
+    border: 1px solid rgba(59, 130, 246, 0.1) !important;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* 6. HEADERS & TYPOGRAPHY */
+h1, h2, h3 {
+    background: linear-gradient(to right, #ffffff, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* 7. CUSTOM HUD ELEMENTS */
+.quantum-header {
+    background: rgba(5, 8, 16, 0.95);
+    padding: 1.2rem 2rem;
+    border-bottom: 2px solid #3b82f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.quantum-footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(5, 8, 16, 0.98);
+    padding: 12px 0;
+    border-top: 1px solid rgba(59, 130, 246, 0.2);
+    z-index: 999;
+}
+
+/* 8. SCROLLBAR STYLING */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #050810; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+/* Animated Glow for Active Elements */
+@keyframes quantum-pulse {
+    0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
+}
+
+.pulse-active {
+    animation: quantum-pulse 2s infinite ease-in-out;
+    border-color: #3b82f6 !important;
+}
+
+/* Cyberpunk Grid Background Overlay */
+[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: -1;
+}
+/* Advanced Glassmorphism */
+.fleet-card, [data-testid="stMetric"] {
+    background: rgba(15, 23, 42, 0.4) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Glow effect on Metric Values */
+[data-testid="stMetricValue"] {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    font-family: 'JetBrains Mono', monospace;
+}
+/* Sidebar Header Styling */
+section[data-testid="stSidebar"] .stMarkdown h2 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 10px;
+}
+
+/* Tooltip Customization */
+div[data-testid="stTooltipHoverTarget"] {
+    color: #3b82f6 !important;
+}
+
+/* Success/Error Toast Refinement */
+[data-testid="stNotification"] {
+    background: rgba(5, 8, 16, 0.9) !important;
+    border: 1px solid #3b82f6 !important;
+    border-radius: 4px !important;
+    color: #f8fafc !important;
+}
+.system-id {
+    top: 4.5rem; /* Moves it below the top nav bar */
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+    border-left: 3px solid #3b82f6;
+    padding-left: 15px;
+}
